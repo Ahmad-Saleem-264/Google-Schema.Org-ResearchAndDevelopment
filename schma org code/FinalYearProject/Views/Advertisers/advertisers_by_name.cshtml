@@ -1,0 +1,133 @@
+﻿@model IEnumerable<FinalYearProject.Models.Advertiser>
+@{
+    ViewBag.Title = "Advertisers By Name";
+    
+    
+
+
+            }
+
+
+
+            <h3 style="text-align:center; padding-bottom:20px">Advertisers by name</h3>
+            @{ int i = 0;
+                string a = "<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">";
+                string b = "</div>";
+                string c = "<hr>";
+                }
+
+
+
+
+
+
+            @foreach (var item in Model)
+            {
+
+
+                if (i == 0)
+                {
+                    @Html.Raw(a);
+                    @Html.Raw(c);
+
+                }
+                i++;
+
+                        <div class="col-md-3 col-sm-8 col-xs-10" itemscope itemtype="http://schema.org/Store">
+                            <div class="panel panel-default" >
+                                <div class="panel-body">
+                                    <h4 itemprop="name">@item.Name.ToString()</h4>
+                                    <h5><b>Category:</b>
+                                        <span itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer">
+                                            <span itemprop="category">
+                                                @item.Category1.Category1
+                                            </span>
+                                        </span></h5>
+                                    <h5>@Html.ActionLink("View Products", "productSearchNametoID", "Search", new { keyValue = @item.Name.ToString().TrimEnd() }, null)</h5>
+                                    <h5>@Html.ActionLink("View Offers", "offerSearchNametoID", "Search", new { keyValue = @item.Name.ToString().TrimEnd() }, null)</h5>
+
+                                </div>
+                                <div class="panel-footer" ><a href="#" itemprop="url">Visit Site</a></div>
+                            </div>
+                        </div>
+
+                if (i == 4)
+                {
+                    @Html.Raw(b);
+                    i = 0;
+                }
+
+            }
+
+@{ 
+    int page_num = ViewBag.id;
+    int total_page = ViewBag.totalpage;
+}
+        
+@if (page_num < 3)
+{
+<div style="text-align:center">
+<ul class="pagination" >
+    @if (page_num==1)
+    {
+        <li class="active"><a href="/Advertisers/advertisers_by_name/1">1</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/2">2</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/3">3</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/4">4</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/5">5</a></li>
+    }
+    @if (page_num == 2)
+    {
+        <li><a href="/Advertisers/advertisers_by_name/1">1</a></li>
+        <li class="active"><a href="/Advertisers/advertisers_by_name/2">2</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/3">3</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/4">4</a></li>
+        <li><a href="/Advertisers/advertisers_by_name/5">5</a></li>
+    }
+
+</ul>
+</div>
+}
+
+else if (page_num > ((total_page) - 2))
+{
+
+    <div style="text-align:center">
+        <ul class="pagination">
+            @if (page_num== (total_page - 1))
+            {
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li class="active"><a href="/Advertisers/advertisers_by_name/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page)">@(total_page)</a></li>
+            }
+            @if (page_num ==total_page)
+            {
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li><a href="/Advertisers/advertisers_by_name/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li class="active"><a href="/Advertisers/advertisers_by_name/@(total_page)">@(total_page)</a></li>
+            }
+            
+        </ul>
+    </div>
+
+}
+
+
+else {
+
+
+    <div style="text-align:center">
+        <ul class="pagination">
+            <li><a href="/Advertisers/advertisers_by_name/@(page_num-2)">@(page_num-2)</a></li>
+            <li><a href="/Advertisers/advertisers_by_name/@(page_num-1)">@(page_num - 1)</a></li>
+            <li class="active"><a href="/Advertisers/advertisers_by_name/@(page_num)">@(page_num)</a></li>
+            <li><a href="/Advertisers/advertisers_by_name/@(page_num+1)">@(page_num+1)</a></li>
+            <li><a href="/Advertisers/advertisers_by_name/@(page_num+2)">@(page_num+2)</a></li>
+        </ul>
+    </div>
+
+}

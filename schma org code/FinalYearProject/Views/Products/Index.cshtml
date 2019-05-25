@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FinalYearProject.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="button" data-rel="1">
+    <div class="button float_l"><a href="#">More..</a></div>
+</div>
+<div class="button" data-rel="2">
+    <div class="button float_l"><a href="#">More..</a></div>
+</div>
+<div class="button" data-rel="3">
+    <div class="button float_l"><a href="#">More..</a></div>
+</div>
+<p>
+    <div id="text1">Paragraph 1</div>
+</p>
+<p>
+    <div id="text2">Paragraph 2</div>
+</p>
+<p>
+    <div id="text3">Paragraph 3</div>
+</p>
+
+<script type="text/javascript">
+$(function  () {
+    // Hide all elements which id starts with text.
+    $("[id^=text]").hide();
+
+    $(".button").click(function () {
+        // Look for the element with id equals text +
+        // the clicked element data-rel value.
+        $("#text" + $(this).data("rel")).toggle();
+    });
+});
+</script>

@@ -1,0 +1,154 @@
+﻿@model IEnumerable<FinalYearProject.Models.Offer>
+@{
+    ViewBag.Title = "Top Offers";
+}
+
+<h2 style="text-align:center">Top Offers</h2>
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-primary" itemscope itemtype="http://schema.org/Offer">
+        <div class="panel-heading" itemprop="seller">@item.Advertiser.Name Special offer</div>
+
+        <div class="panel-body" style="text-align:center">
+
+
+
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">Description:</td>
+                        <td style="text-align:left" itemprop="description">@item.Description</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Discount:</td>
+                        <td style="text-align:left">@item.OfferApproved.Discount</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Eligible Criteria:</td>
+                        <td style="text-align:left" itemprop="eligibleTransactionVolume">@item.OfferApproved.EligibaleCriteria</td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td style="font-weight:bold">Category:</td>
+                        <td style="text-align:left" itemprop="category">@item.Category.Category1</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Coupon Code:</td>
+                        <td style="text-align:left">@item.CouponCode</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Promotion Type:</td>
+                        <td style="text-align:left">@item.Promotion.PromotionType </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td style="font-weight:bold">Start Date:</td>
+
+                        <td style="text-align:left" itemprop="validFrom">@item.PromotionStartDate</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">End Date:</td>
+                        <td style="text-align:left" itemprop="validThrough">@item.PromotionEndDate</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <b style="text-align:center">Visit site</b>
+
+        </div>
+    </div>
+
+
+}
+
+
+
+@{
+    int page_num = ViewBag.id;
+    int total_page = ViewBag.totalpage;
+}
+
+@if (page_num < 3)
+{
+    <div style="text-align:center">
+        <ul class="pagination">
+@if (page_num == 1)
+{
+            <li class="active"><a href="/Offers/Top_Offers/1">1</a></li>
+            <li><a href="/Offers/Top_Offers/2">2</a></li>
+            <li><a href="/Offers/Top_Offers/3">3</a></li>
+            <li><a href="/Offers/Top_Offers/4">4</a></li>
+            <li><a href="/Offers/Top_Offers/5">5</a></li>
+}
+@if (page_num == 2)
+{
+
+            <li><a href="/Offers/Top_Offers/1">1</a></li>
+            <li class="active"><a href="/Offers/Top_Offers/2">2</a></li>
+            <li><a href="/Offers/Top_Offers/3">3</a></li>
+            <li><a href="/Offers/Top_Offers/4">4</a></li>
+            <li><a href="/Offers/Top_Offers/5">5</a></li>
+}
+        </ul>
+    </div>
+}
+
+else if (page_num > ((total_page) - 2))
+{
+
+    <div style="text-align:center">
+        <ul class="pagination">
+@if (page_num == total_page - 1)
+{
+            <li><a href="/Offers/Top_Offers/@(total_page - 4)"> @(total_page - 4) </a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page - 3)">@(total_page - 3)</a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page - 2)">@(total_page - 2)</a></li>
+            <li class="active"><a href="/Offers/Top_Offers/@(total_page - 1)">@(total_page - 1)</a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page)">@(total_page)</a></li>
+}
+@if (page_num == total_page)
+{
+            <li><a href="/Offers/Top_Offers/@(total_page - 4)"> @(total_page - 4) </a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page - 3)">@(total_page - 3)</a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page - 2)">@(total_page - 2)</a></li>
+            <li><a href="/Offers/Top_Offers/@(total_page - 1)">@(total_page - 1)</a></li>
+            <li class="active"><a href="/Offers/Top_Offers/@(total_page)">@(total_page)</a></li>
+}
+        </ul>
+    </div>
+
+}
+
+
+else {
+
+
+    <div style="text-align:center">
+        <ul class="pagination">
+            <li><a href="/Offers/Top_Offers/@(page_num-2)">@(page_num - 2)</a></li>
+            <li><a href="/Offers/Top_Offers/@(page_num-1)">@(page_num - 1)</a></li>
+            <li class="active"><a href="/Offers/Top_Offers/@(page_num)">@(page_num)</a></li>
+            <li><a href="/Offers/Top_Offers/@(page_num+1)">@(page_num + 1)</a></li>
+            <li><a href="/Offers/Top_Offers/@(page_num+2)">@(page_num + 2)</a></li>
+        </ul>
+    </div>
+
+}
+
+

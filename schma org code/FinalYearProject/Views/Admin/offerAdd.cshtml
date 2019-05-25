@@ -1,0 +1,108 @@
+﻿@model FinalYearProject.Models.KeywordAnalysis
+
+@{
+    ViewBag.Title = "offerAdd";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Add Offer</h2>
+<hr />
+@if (ViewBag.status != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.status
+    </div>
+}
+@if (ViewBag.Added != null)
+{
+    <div class="alert alert-success">
+        Offer Approved
+    </div>
+}
+
+<dd>
+    @Html.ViewBag.Description
+</dd>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.offerdescription, new { htmlAttributes = new { @class = "form-control", name = "Description" , type = "hidden" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.offerid, new { htmlAttributes = new { @class = "form-control", name = "OfferID" , type = "hidden" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Save Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.save_amount, new { htmlAttributes = new { @class = "form-control", name = "SaveAmount" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Off Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.off_amount, new { htmlAttributes = new { @class = "form-control", name = "OffAmount" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("End Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.end_date, new { htmlAttributes = new { @class = "form-control", name = "EndDate" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Eligible Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.eligible_amount, new { htmlAttributes = new { @class = "form-control", name = "EligibleAmount" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Site Wide", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sitewide, new { htmlAttributes = new { @class = "form-control", name = "SideWide" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Free Shipping", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.freeshipping, new { htmlAttributes = new { @class = "form-control", name = "FreeShiping" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Code", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.code, new { htmlAttributes = new { @class = "form-control", name = "Code" } })
+            </div>
+        </div>
+            <br />
+           
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        
+    </div>
+}
+@Html.ActionLink("NER Analysis","NER",new {s=Model.offerdescription })
+
+<div>
+    @Html.ActionLink("Back to List", "viewOffers")
+</div>

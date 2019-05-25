@@ -1,0 +1,1150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ServicesDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" />
+          <Property Name="AdvertiserID" Type="int" />
+          <Property Name="Type" Type="nchar" MaxLength="20" />
+          <Property Name="Defaults" Type="nchar" MaxLength="15" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Adveriser_LinkType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="int" />
+          <Property Name="LinkTypeID" Type="int" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Advertiser">
+          <Key>
+            <PropertyRef Name="AdvertiserID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="int" Nullable="false" />
+          <Property Name="AccountStatus" Type="nchar" MaxLength="15" />
+          <Property Name="SevenDayEpc" Type="float" />
+          <Property Name="ThreeMonthEpc" Type="float" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="Name" Type="nchar" MaxLength="80" />
+          <Property Name="Url" Type="nchar" MaxLength="150" />
+          <Property Name="RelationshipStatus" Type="nchar" MaxLength="15" />
+          <Property Name="MobileTracking" Type="nchar" MaxLength="10" />
+          <Property Name="NetworkRank" Type="nchar" MaxLength="10" />
+          <Property Name="ParentCategoryID" Type="int" />
+          <Property Name="ChildCategoryID" Type="int" />
+          <Property Name="PerformanceIncentive" Type="nchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="Category" Type="nchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Commission">
+          <Key>
+            <PropertyRef Name="ItemListAutoKey" />
+          </Key>
+          <Property Name="ActionID" Type="int" />
+          <Property Name="ItemListID" Type="int" />
+          <Property Name="ItemListName" Type="nchar" MaxLength="120" />
+          <Property Name="PricePercent" Type="nchar" MaxLength="15" />
+          <Property Name="ItemListAutoKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="Languages" Type="nchar" MaxLength="3" />
+          <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="LinkSize">
+          <Key>
+            <PropertyRef Name="LinkSizeID" />
+          </Key>
+          <Property Name="LinkSize" Type="nchar" MaxLength="50" />
+          <Property Name="LinkSizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="LinkType">
+          <Key>
+            <PropertyRef Name="LinkTypeID" />
+          </Key>
+          <Property Name="LinkType" Type="nchar" MaxLength="50" />
+          <Property Name="LinkTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="ClickCommission" Type="float" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="LeadCommission" Type="nchar" MaxLength="40" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Destination" Type="nvarchar(max)" />
+          <Property Name="LinkID" Type="int" />
+          <Property Name="LinkTypeID" Type="int" />
+          <Property Name="PerformanceIncentive" Type="nchar" MaxLength="10" />
+          <Property Name="PromotionEndDate" Type="datetime2" Precision="7" />
+          <Property Name="PromotionStartDate" Type="datetime2" Precision="7" />
+          <Property Name="PromotionID" Type="int" />
+          <Property Name="CouponCode" Type="nchar" MaxLength="50" />
+          <Property Name="RelationStatus" Type="nchar" MaxLength="10" />
+          <Property Name="SalesCommission" Type="nchar" MaxLength="60" />
+          <Property Name="SevenDayEPC" Type="nchar" MaxLength="10" />
+          <Property Name="ThreeMonthEPC" Type="nchar" MaxLength="10" />
+          <Property Name="ClickUrl" Type="nvarchar(max)" />
+          <Property Name="LinkName" Type="nvarchar(max)" />
+          <Property Name="OfferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="modfiyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="OfferApproved">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="OfferID" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="EligibaleCriteria" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="OfferDetail">
+          <Key>
+            <PropertyRef Name="OfferDetailAutoKey" />
+          </Key>
+          <Property Name="HTMLCode" Type="nvarchar(max)" />
+          <Property Name="JavascriptCode" Type="nvarchar(max)" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Width" Type="int" />
+          <Property Name="OfferID" Type="int" Nullable="false" />
+          <Property Name="OfferDetailAutoKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductAutoKey" />
+          </Key>
+          <Property Name="AdID" Type="int" />
+          <Property Name="AdvertiserID" Type="int" />
+          <Property Name="AdvertisorCategory" Type="nchar" MaxLength="275" />
+          <Property Name="BuyUrl" Type="nvarchar(max)" />
+          <Property Name="CatalogID" Type="nchar" MaxLength="12" />
+          <Property Name="Currency" Type="nchar" MaxLength="5" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="InStock" Type="nchar" MaxLength="10" />
+          <Property Name="ManufacturerSKU" Type="nchar" MaxLength="110" />
+          <Property Name="Name" Type="nchar" MaxLength="400" />
+          <Property Name="Price" Type="float" />
+          <Property Name="RetailPrice" Type="float" />
+          <Property Name="SalePrice" Type="float" />
+          <Property Name="SKU" Type="nchar" MaxLength="150" />
+          <Property Name="UPC" Type="nchar" MaxLength="50" />
+          <Property Name="ISBN" Type="nchar" MaxLength="40" />
+          <Property Name="ProductAutoKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+          <Property Name="ManufactureName" Type="nchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionType" Type="nchar" MaxLength="25" />
+          <Property Name="PromotionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Action_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Action" Type="Self.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adveriser_LinkType_Adveriser_LinkType">
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="0..1" />
+          <End Role="Adveriser_LinkType" Type="Self.Adveriser_LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Principal>
+            <Dependent Role="Adveriser_LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adveriser_LinkType_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Adveriser_LinkType" Type="Self.Adveriser_LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Adveriser_LinkType">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="ParentCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Category1">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="ChildCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commission_Action1">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Commission" Type="Self.Commission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="Commission">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_LinkType">
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="LinkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Promotion">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="PromotionID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="PromotionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfferApproved_Offer">
+          <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+          <End Role="OfferApproved" Type="Self.OfferApproved" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="OfferID" />
+            </Principal>
+            <Dependent Role="OfferApproved">
+              <PropertyRef Name="OfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfferDetail_Offer">
+          <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+          <End Role="OfferDetail" Type="Self.OfferDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="OfferID" />
+            </Principal>
+            <Dependent Role="OfferDetail">
+              <PropertyRef Name="OfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServicesDataModelStoreContainer">
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adveriser_LinkType" EntityType="Self.Adveriser_LinkType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertiser" EntityType="Self.Advertiser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commission" EntityType="Self.Commission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkSize" EntityType="Self.LinkSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinkType" EntityType="Self.LinkType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfferApproved" EntityType="Self.OfferApproved" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfferDetail" EntityType="Self.OfferDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Action_Advertiser" Association="Self.FK_Action_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertiser" />
+            <End Role="Action" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adveriser_LinkType_Adveriser_LinkType" Association="Self.FK_Adveriser_LinkType_Adveriser_LinkType">
+            <End Role="LinkType" EntitySet="LinkType" />
+            <End Role="Adveriser_LinkType" EntitySet="Adveriser_LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adveriser_LinkType_Advertiser" Association="Self.FK_Adveriser_LinkType_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertiser" />
+            <End Role="Adveriser_LinkType" EntitySet="Adveriser_LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Category" Association="Self.FK_Advertiser_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Advertiser" EntitySet="Advertiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Category1" Association="Self.FK_Advertiser_Category1">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Advertiser" EntitySet="Advertiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Language" Association="Self.FK_Advertiser_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Advertiser" EntitySet="Advertiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commission_Action1" Association="Self.FK_Commission_Action1">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Commission" EntitySet="Commission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Advertiser" Association="Self.FK_Offer_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertiser" />
+            <End Role="Offer" EntitySet="Offer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Category" Association="Self.FK_Offer_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Offer" EntitySet="Offer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Language" Association="Self.FK_Offer_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Offer" EntitySet="Offer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_LinkType" Association="Self.FK_Offer_LinkType">
+            <End Role="LinkType" EntitySet="LinkType" />
+            <End Role="Offer" EntitySet="Offer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Promotion" Association="Self.FK_Offer_Promotion">
+            <End Role="Promotion" EntitySet="Promotion" />
+            <End Role="Offer" EntitySet="Offer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfferApproved_Offer" Association="Self.FK_OfferApproved_Offer">
+            <End Role="Offer" EntitySet="Offer" />
+            <End Role="OfferApproved" EntitySet="OfferApproved" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfferDetail_Offer" Association="Self.FK_OfferDetail_Offer">
+            <End Role="Offer" EntitySet="Offer" />
+            <End Role="OfferDetail" EntitySet="OfferDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Advertiser" Association="Self.FK_Product_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertiser" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServicesDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="AdvertiserID" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Defaults" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Advertiser" Relationship="Self.FK_Action_Advertiser" FromRole="Action" ToRole="Advertiser" />
+          <NavigationProperty Name="Commissions" Relationship="Self.FK_Commission_Action1" FromRole="Action" ToRole="Commission" />
+        </EntityType>
+        <EntityType Name="Adveriser_LinkType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="Int32" />
+          <Property Name="LinkTypeID" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="LinkType" Relationship="Self.FK_Adveriser_LinkType_Adveriser_LinkType" FromRole="Adveriser_LinkType" ToRole="LinkType" />
+          <NavigationProperty Name="Advertiser" Relationship="Self.FK_Adveriser_LinkType_Advertiser" FromRole="Adveriser_LinkType" ToRole="Advertiser" />
+        </EntityType>
+        <EntityType Name="Advertiser">
+          <Key>
+            <PropertyRef Name="AdvertiserID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="Int32" Nullable="false" />
+          <Property Name="AccountStatus" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="SevenDayEpc" Type="Double" />
+          <Property Name="ThreeMonthEpc" Type="Double" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="true" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="RelationshipStatus" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="MobileTracking" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NetworkRank" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ParentCategoryID" Type="Int32" />
+          <Property Name="ChildCategoryID" Type="Int32" />
+          <Property Name="PerformanceIncentive" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Actions" Relationship="Self.FK_Action_Advertiser" FromRole="Advertiser" ToRole="Action" />
+          <NavigationProperty Name="Adveriser_LinkType" Relationship="Self.FK_Adveriser_LinkType_Advertiser" FromRole="Advertiser" ToRole="Adveriser_LinkType" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Advertiser_Category" FromRole="Advertiser" ToRole="Category" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_Advertiser_Category1" FromRole="Advertiser" ToRole="Category" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_Advertiser_Language" FromRole="Advertiser" ToRole="Language" />
+          <NavigationProperty Name="Offers" Relationship="Self.FK_Offer_Advertiser" FromRole="Advertiser" ToRole="Offer" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Advertiser" FromRole="Advertiser" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="Category1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Advertisers" Relationship="Self.FK_Advertiser_Category" FromRole="Category" ToRole="Advertiser" />
+          <NavigationProperty Name="Advertisers1" Relationship="Self.FK_Advertiser_Category1" FromRole="Category" ToRole="Advertiser" />
+          <NavigationProperty Name="Offers" Relationship="Self.FK_Offer_Category" FromRole="Category" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="Commission">
+          <Key>
+            <PropertyRef Name="ItemListAutoKey" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" />
+          <Property Name="ItemListID" Type="Int32" />
+          <Property Name="ItemListName" Type="String" MaxLength="120" FixedLength="true" Unicode="true" />
+          <Property Name="PricePercent" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="ItemListAutoKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Action" Relationship="Self.FK_Commission_Action1" FromRole="Commission" ToRole="Action" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="Languages" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Advertisers" Relationship="Self.FK_Advertiser_Language" FromRole="Language" ToRole="Advertiser" />
+          <NavigationProperty Name="Offers" Relationship="Self.FK_Offer_Language" FromRole="Language" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="LinkSize">
+          <Key>
+            <PropertyRef Name="LinkSizeID" />
+          </Key>
+          <Property Name="LinkSize1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LinkSizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="LinkType">
+          <Key>
+            <PropertyRef Name="LinkTypeID" />
+          </Key>
+          <Property Name="LinkType1" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LinkTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Adveriser_LinkType" Relationship="Self.FK_Adveriser_LinkType_Adveriser_LinkType" FromRole="LinkType" ToRole="Adveriser_LinkType" />
+          <NavigationProperty Name="Offers" Relationship="Self.FK_Offer_LinkType" FromRole="LinkType" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="AdvertiserID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="ClickCommission" Type="Double" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="LeadCommission" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Destination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkID" Type="Int32" />
+          <Property Name="LinkTypeID" Type="Int32" />
+          <Property Name="PerformanceIncentive" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PromotionEndDate" Type="DateTime" Precision="7" />
+          <Property Name="PromotionStartDate" Type="DateTime" Precision="7" />
+          <Property Name="PromotionID" Type="Int32" />
+          <Property Name="CouponCode" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="RelationStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SalesCommission" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Name="SevenDayEPC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ThreeMonthEPC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ClickUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="modfiyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Advertiser" Relationship="Self.FK_Offer_Advertiser" FromRole="Offer" ToRole="Advertiser" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Offer_Category" FromRole="Offer" ToRole="Category" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_Offer_Language" FromRole="Offer" ToRole="Language" />
+          <NavigationProperty Name="LinkType" Relationship="Self.FK_Offer_LinkType" FromRole="Offer" ToRole="LinkType" />
+          <NavigationProperty Name="Promotion" Relationship="Self.FK_Offer_Promotion" FromRole="Offer" ToRole="Promotion" />
+          <NavigationProperty Name="OfferApproved" Relationship="Self.FK_OfferApproved_Offer" FromRole="Offer" ToRole="OfferApproved" />
+          <NavigationProperty Name="OfferDetails" Relationship="Self.FK_OfferDetail_Offer" FromRole="Offer" ToRole="OfferDetail" />
+        </EntityType>
+        <EntityType Name="OfferApproved">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="OfferID" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="EligibaleCriteria" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Offer" Relationship="Self.FK_OfferApproved_Offer" FromRole="OfferApproved" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="OfferDetail">
+          <Key>
+            <PropertyRef Name="OfferDetailAutoKey" />
+          </Key>
+          <Property Name="HTMLCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JavascriptCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Width" Type="Int32" />
+          <Property Name="OfferID" Type="Int32" Nullable="false" />
+          <Property Name="OfferDetailAutoKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Offer" Relationship="Self.FK_OfferDetail_Offer" FromRole="OfferDetail" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductAutoKey" />
+          </Key>
+          <Property Name="AdID" Type="Int32" />
+          <Property Name="AdvertiserID" Type="Int32" />
+          <Property Name="AdvertisorCategory" Type="String" MaxLength="275" FixedLength="true" Unicode="true" />
+          <Property Name="BuyUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CatalogID" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InStock" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ManufacturerSKU" Type="String" MaxLength="110" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="true" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="RetailPrice" Type="Double" />
+          <Property Name="SalePrice" Type="Double" />
+          <Property Name="SKU" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="UPC" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ISBN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="ProductAutoKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <Property Name="ManufactureName" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Advertiser" Relationship="Self.FK_Product_Advertiser" FromRole="Product" ToRole="Advertiser" />
+        </EntityType>
+        <EntityType Name="Promotion">
+          <Key>
+            <PropertyRef Name="PromotionID" />
+          </Key>
+          <Property Name="PromotionType" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="PromotionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Offers" Relationship="Self.FK_Offer_Promotion" FromRole="Promotion" ToRole="Offer" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Action_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Action" Type="Self.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commission_Action1">
+          <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+          <End Role="Commission" Type="Self.Commission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="Commission">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adveriser_LinkType_Adveriser_LinkType">
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="0..1" />
+          <End Role="Adveriser_LinkType" Type="Self.Adveriser_LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Principal>
+            <Dependent Role="Adveriser_LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adveriser_LinkType_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Adveriser_LinkType" Type="Self.Adveriser_LinkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Adveriser_LinkType">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="ParentCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Category1">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="ChildCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertiser_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Advertiser">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Advertiser">
+          <End Role="Advertiser" Type="Self.Advertiser" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertiser">
+              <PropertyRef Name="AdvertiserID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AdvertiserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_LinkType">
+          <End Role="LinkType" Type="Self.LinkType" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinkType">
+              <PropertyRef Name="LinkTypeID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="LinkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offer_Promotion">
+          <End Role="Promotion" Type="Self.Promotion" Multiplicity="0..1" />
+          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotion">
+              <PropertyRef Name="PromotionID" />
+            </Principal>
+            <Dependent Role="Offer">
+              <PropertyRef Name="PromotionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfferApproved_Offer">
+          <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+          <End Role="OfferApproved" Type="Self.OfferApproved" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="OfferID" />
+            </Principal>
+            <Dependent Role="OfferApproved">
+              <PropertyRef Name="OfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfferDetail_Offer">
+          <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+          <End Role="OfferDetail" Type="Self.OfferDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offer">
+              <PropertyRef Name="OfferID" />
+            </Principal>
+            <Dependent Role="OfferDetail">
+              <PropertyRef Name="OfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServicesDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actions" EntityType="Self.Action" />
+          <EntitySet Name="Adveriser_LinkType" EntityType="Self.Adveriser_LinkType" />
+          <EntitySet Name="Advertisers" EntityType="Self.Advertiser" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Commissions" EntityType="Self.Commission" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="LinkSizes" EntityType="Self.LinkSize" />
+          <EntitySet Name="LinkTypes" EntityType="Self.LinkType" />
+          <EntitySet Name="Offers" EntityType="Self.Offer" />
+          <EntitySet Name="OfferApproveds" EntityType="Self.OfferApproved" />
+          <EntitySet Name="OfferDetails" EntityType="Self.OfferDetail" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Action_Advertiser" Association="Self.FK_Action_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertisers" />
+            <End Role="Action" EntitySet="Actions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commission_Action1" Association="Self.FK_Commission_Action1">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="Commission" EntitySet="Commissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adveriser_LinkType_Adveriser_LinkType" Association="Self.FK_Adveriser_LinkType_Adveriser_LinkType">
+            <End Role="LinkType" EntitySet="LinkTypes" />
+            <End Role="Adveriser_LinkType" EntitySet="Adveriser_LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adveriser_LinkType_Advertiser" Association="Self.FK_Adveriser_LinkType_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertisers" />
+            <End Role="Adveriser_LinkType" EntitySet="Adveriser_LinkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Category" Association="Self.FK_Advertiser_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Advertiser" EntitySet="Advertisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Category1" Association="Self.FK_Advertiser_Category1">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Advertiser" EntitySet="Advertisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertiser_Language" Association="Self.FK_Advertiser_Language">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Advertiser" EntitySet="Advertisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Advertiser" Association="Self.FK_Offer_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertisers" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Advertiser" Association="Self.FK_Product_Advertiser">
+            <End Role="Advertiser" EntitySet="Advertisers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Category" Association="Self.FK_Offer_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Language" Association="Self.FK_Offer_Language">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_LinkType" Association="Self.FK_Offer_LinkType">
+            <End Role="LinkType" EntitySet="LinkTypes" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offer_Promotion" Association="Self.FK_Offer_Promotion">
+            <End Role="Promotion" EntitySet="Promotions" />
+            <End Role="Offer" EntitySet="Offers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfferApproved_Offer" Association="Self.FK_OfferApproved_Offer">
+            <End Role="Offer" EntitySet="Offers" />
+            <End Role="OfferApproved" EntitySet="OfferApproveds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfferDetail_Offer" Association="Self.FK_OfferDetail_Offer">
+            <End Role="Offer" EntitySet="Offers" />
+            <End Role="OfferDetail" EntitySet="OfferDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServicesDataModelStoreContainer" CdmEntityContainer="ServicesDataEntities">
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="ServicesDataModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AdvertiserID" ColumnName="AdvertiserID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Defaults" ColumnName="Defaults" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Adveriser_LinkType">
+            <EntityTypeMapping TypeName="ServicesDataModel.Adveriser_LinkType">
+              <MappingFragment StoreEntitySet="Adveriser_LinkType">
+                <ScalarProperty Name="AdvertiserID" ColumnName="AdvertiserID" />
+                <ScalarProperty Name="LinkTypeID" ColumnName="LinkTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisers">
+            <EntityTypeMapping TypeName="ServicesDataModel.Advertiser">
+              <MappingFragment StoreEntitySet="Advertiser">
+                <ScalarProperty Name="AdvertiserID" ColumnName="AdvertiserID" />
+                <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+                <ScalarProperty Name="SevenDayEpc" ColumnName="SevenDayEpc" />
+                <ScalarProperty Name="ThreeMonthEpc" ColumnName="ThreeMonthEpc" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="RelationshipStatus" ColumnName="RelationshipStatus" />
+                <ScalarProperty Name="MobileTracking" ColumnName="MobileTracking" />
+                <ScalarProperty Name="NetworkRank" ColumnName="NetworkRank" />
+                <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+                <ScalarProperty Name="ChildCategoryID" ColumnName="ChildCategoryID" />
+                <ScalarProperty Name="PerformanceIncentive" ColumnName="PerformanceIncentive" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ServicesDataModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commissions">
+            <EntityTypeMapping TypeName="ServicesDataModel.Commission">
+              <MappingFragment StoreEntitySet="Commission">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ItemListID" ColumnName="ItemListID" />
+                <ScalarProperty Name="ItemListName" ColumnName="ItemListName" />
+                <ScalarProperty Name="PricePercent" ColumnName="PricePercent" />
+                <ScalarProperty Name="ItemListAutoKey" ColumnName="ItemListAutoKey" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="ServicesDataModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkSizes">
+            <EntityTypeMapping TypeName="ServicesDataModel.LinkSize">
+              <MappingFragment StoreEntitySet="LinkSize">
+                <ScalarProperty Name="LinkSize1" ColumnName="LinkSize" />
+                <ScalarProperty Name="LinkSizeID" ColumnName="LinkSizeID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinkTypes">
+            <EntityTypeMapping TypeName="ServicesDataModel.LinkType">
+              <MappingFragment StoreEntitySet="LinkType">
+                <ScalarProperty Name="LinkType1" ColumnName="LinkType" />
+                <ScalarProperty Name="LinkTypeID" ColumnName="LinkTypeID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offers">
+            <EntityTypeMapping TypeName="ServicesDataModel.Offer">
+              <MappingFragment StoreEntitySet="Offer">
+                <ScalarProperty Name="AdvertiserID" ColumnName="AdvertiserID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ClickCommission" ColumnName="ClickCommission" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="LeadCommission" ColumnName="LeadCommission" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+                <ScalarProperty Name="LinkTypeID" ColumnName="LinkTypeID" />
+                <ScalarProperty Name="PerformanceIncentive" ColumnName="PerformanceIncentive" />
+                <ScalarProperty Name="PromotionEndDate" ColumnName="PromotionEndDate" />
+                <ScalarProperty Name="PromotionStartDate" ColumnName="PromotionStartDate" />
+                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
+                <ScalarProperty Name="RelationStatus" ColumnName="RelationStatus" />
+                <ScalarProperty Name="SalesCommission" ColumnName="SalesCommission" />
+                <ScalarProperty Name="SevenDayEPC" ColumnName="SevenDayEPC" />
+                <ScalarProperty Name="ThreeMonthEPC" ColumnName="ThreeMonthEPC" />
+                <ScalarProperty Name="ClickUrl" ColumnName="ClickUrl" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="modfiyDate" ColumnName="modfiyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfferApproveds">
+            <EntityTypeMapping TypeName="ServicesDataModel.OfferApproved">
+              <MappingFragment StoreEntitySet="OfferApproved">
+                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="EligibaleCriteria" ColumnName="EligibaleCriteria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfferDetails">
+            <EntityTypeMapping TypeName="ServicesDataModel.OfferDetail">
+              <MappingFragment StoreEntitySet="OfferDetail">
+                <ScalarProperty Name="HTMLCode" ColumnName="HTMLCode" />
+                <ScalarProperty Name="JavascriptCode" ColumnName="JavascriptCode" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+                <ScalarProperty Name="OfferDetailAutoKey" ColumnName="OfferDetailAutoKey" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ServicesDataModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="AdID" ColumnName="AdID" />
+                <ScalarProperty Name="AdvertiserID" ColumnName="AdvertiserID" />
+                <ScalarProperty Name="AdvertisorCategory" ColumnName="AdvertisorCategory" />
+                <ScalarProperty Name="BuyUrl" ColumnName="BuyUrl" />
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="ManufacturerSKU" ColumnName="ManufacturerSKU" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="ProductAutoKey" ColumnName="ProductAutoKey" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ManufactureName" ColumnName="ManufactureName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="ServicesDataModel.Promotion">
+              <MappingFragment StoreEntitySet="Promotion">
+                <ScalarProperty Name="PromotionType" ColumnName="PromotionType" />
+                <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ServicesDataModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

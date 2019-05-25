@@ -1,0 +1,130 @@
+﻿@model FinalYearProject.Models.Advertiser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Advertiser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SevenDayEpc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SevenDayEpc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThreeMonthEpc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThreeMonthEpc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelationshipStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelationshipStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileTracking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileTracking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerformanceIncentive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceIncentive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Category1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Category1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category1.Category1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category1.Category1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.Languages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.Languages)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdvertiserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

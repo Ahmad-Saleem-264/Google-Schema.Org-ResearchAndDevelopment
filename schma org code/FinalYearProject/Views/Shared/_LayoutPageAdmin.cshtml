@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Admin Pannel</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container-fluid" style="margin-bottom:40px">
+
+        <!-- Start of navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="/Admin/index">Admin Best Offers</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="topFixedNavbar1">
+
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Advertisers<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Advertisers/advertisers_by_name/1">View by Name</a></li>
+                            <li><a href="/Advertisers/advertisers_by_rank/1">View Top</a></li>
+
+                        </ul>
+                    </li>
+
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Offers<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Offers/Newest_Offers/1">View Newest</a></li>
+                            <li><a href="/Offers/Top_Offers/">View Top offers</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Products/products_by_name/">View by Name</a></li>
+                            <li><a href="">View by Price</a></li>
+                            <li><a href="/Products/products_by_rank/1">View Top Products</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+
+                <form action="@Url.Action("Search","Admin")" method="post" class="navbar-form navbar-right myform" role="search">
+                    <select class="form-control" id="selected1" name="Selectedname">
+                        <option>Product</option>
+                        <option>Offer</option>
+                        <option>Advertiser</option>
+
+                    </select>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="SearchBox">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+
+
+                </form>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </nav>
+
+
+    </div>
+
+    <!-- /.navbar-collapse -->
+    <!--Slider section-->
+    @RenderSection("slider", required: false)
+
+
+    <div class="container-fluid" style="padding-top:20px;">
+        <div class="row">
+            <!--sidebbar start-->
+
+            <div class="col-lg-2 col-md-3 col-sm-4">
+
+
+                <nav class="navbar navbar-default sidebar col-lg-2 col-md-3 col-sm-4" role="navigation" style="position:static;"
+                     id="test">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <!--<span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>-->
+                        </button>
+                        <a class="navbar-brand" href="#">Category</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Women</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/21">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/21">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/21">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Computer Software</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/31">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/31">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/31">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Consumer Electronics</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/112">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/112">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/112">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Hotel</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/63">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/63">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/63">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Gifts</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/133">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/133">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/133">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Vacations</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/107">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/107">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/107">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Virtual Malls</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/61">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/61">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/61">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Jewelry</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/45">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/45">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/45">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Apparel</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/172">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/172">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/172">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Parts and Accessories</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/2">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/2">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/2">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Web Hosting/Servers</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/108">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/108">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/108">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Malls</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/23">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/23">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/23">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Nutritional Supplements</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/53">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/53">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/53">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Cosmetics</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/98">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/98">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/98">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Outdoors</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/91">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/91">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/91">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Books</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/10">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/10">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/10">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Shoes</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/81">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/81">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/81">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Sports</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/103">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/103">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/103">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Computer Hardware</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/132">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/132">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/132">View Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="wrapper-dropdown">
+                                <a href="#" data-toggle="dropdown">Men's</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Category/Offers_by_Category/20">View Offers</a></li>
+                                    <li><a href="/Category/Advertisers_by_Category/20">View Stores</a></li>
+                                    <li><a href="/Category/Products_by_Category/20">View Products</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+
+
+            </div>
+
+
+            <!--sidebar end-->
+
+
+            <div class="col-lg-10 col-md-9 col-sm-8">
+
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year -Best Offers</p>     
+    @*@Html.ActionLink("To Site", "Index", "Home")*@
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/myscript")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

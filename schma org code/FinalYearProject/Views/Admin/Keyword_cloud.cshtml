@@ -1,0 +1,47 @@
+﻿@model FinalYearProject.Models.keyword
+@{
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Keyword_cloud</title>
+</head>
+<body>
+    <h2 style="text-align:center">Keyword Cloud</h2>
+    <div> 
+
+        <table class="table">
+            <tr>
+                <th>
+                    Keyword
+                </th>
+                <th>
+                    Count
+                </th>
+            </tr>
+
+            @for(int i=0;i<30;i++)
+            {
+                <tr>
+                    <td>
+                       @Model.terms[i]
+                    </td>
+                    <td>
+                        @Model.document_count[i]
+                    </td>
+
+                </tr>
+
+            }
+
+
+
+        </table>
+
+    </div>
+</body>
+</html>

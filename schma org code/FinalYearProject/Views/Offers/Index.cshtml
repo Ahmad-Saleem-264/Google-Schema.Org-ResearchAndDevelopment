@@ -1,0 +1,159 @@
+﻿@model IEnumerable<FinalYearProject.Models.Offer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClickCommission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeadCommission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceIncentive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotionEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotionStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CouponCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelationStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesCommission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SevenDayEPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThreeMonthEPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClickUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modfiyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advertiser.AccountStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Category1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language.Languages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkType.LinkType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Promotion.PromotionType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClickCommission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeadCommission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PerformanceIncentive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotionEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotionStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CouponCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelationStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesCommission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SevenDayEPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThreeMonthEPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClickUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modfiyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Advertiser.AccountStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Category1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language.Languages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkType.LinkType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promotion.PromotionType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OfferID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OfferID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OfferID })
+        </td>
+    </tr>
+}
+
+</table>

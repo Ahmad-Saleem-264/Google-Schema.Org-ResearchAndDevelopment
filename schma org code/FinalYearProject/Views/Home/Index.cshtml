@@ -1,0 +1,360 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section slider{
+
+
+    <!-- /Start slider -->
+    <div class="container-fluid" style="padding-top:20px">
+
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example" data-slide-to="1"></li>
+                <li data-target="#carousel-example" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="#"><img src="~/Content/sale.jpg" /></a>
+                    <div class="carousel-caption">
+                        <h3>Get Amazing sales</h3>
+                        <p>Sale on every product</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="~/Content/stickers.jpg" /></a>
+                    <div class="carousel-caption">
+                        <h3>Get Discounts</h3>
+                        <p>Best Discounts</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="~/Content/balloons.jpg" /></a>
+                    <div class="carousel-caption">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+
+    </div>
+    <!-- end slider -->
+
+
+}
+
+<h3 style="text-align:center; padding-bottom:20px">Top Advertisers </h3>
+
+<!--Start Advertisors-->
+<section>
+    <div class="col-md-3 col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <h4>Priceline.com</h4>
+                <h5><b>Category:</b>Hotel</h5>
+                <h5>@Html.ActionLink("View Products", "productSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+                <h5>@Html.ActionLink("View Offers", "offerSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+            </div>
+            <div class="panel-footer">Visit Site</div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <h4>GoDaddy.com</h4>
+                <h5><b>Category:</b> Domain Registrations</h5>
+                <h5>@Html.ActionLink("View Products", "productSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+                <h5>@Html.ActionLink("View Offers", "offerSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+            </div>
+            <div class="panel-footer">Visit Site</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <h4>Dell Small Business</h4>
+                <h5><b>Category:</b> Computer HW</h5>
+                <h5>@Html.ActionLink("View Products", "productSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+                <h5>@Html.ActionLink("View Offers", "offerSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+            </div>
+            <div class="panel-footer">Visit Site</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <h4>1&1 Internet Inc.</h4>
+                <h5><b>Category:</b> Web Hosting/Servers</h5>
+                <h5>@Html.ActionLink("View Products", "productSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+                <h5>@Html.ActionLink("View Offers", "offerSearchNametoID", "Search", new { keyValue = "Priceline.com" }, null)</h5>
+            </div>
+            <div class="panel-footer">Visit Site</div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!--end Advertisors-->
+<!--start products-->
+
+
+
+
+<section>
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+        <hr>
+        <h3 style="text-align:center">Top Products</h3>
+
+        <div class="col-md-4 col-sm-12">
+            <div class="thumbnail">
+                <img src="http://www.ashford.com/images/catalog/bulgari/assioma/AAW36D1DL_FLA.jpg" alt="Cinque Terre" width="304" height="236" itemprop="image">
+
+                <h4>Bulgari Women's Assioma Watch</h4>
+
+                <p style=" font-size:16px">Manufacturer: Bulgari </p>
+                <p style=" font-size:16px">Store: Ashford</p>
+                <p style=" font-size:16px">Description: "Bulgari, Assioma, Women's Watch, 18K White Gold Case, Satin Strap"</p>
+
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="price">$29,90</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <button class="btn btn-success right"> BUY ITEM</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-12">
+            <div class="thumbnail">
+                <img src="http://mobileimg.priceline.com/htlimg/22047/22047506/thumbnail-300-square.jpg" alt="Cinque Terre" width="304" height="236" itemprop="image">
+
+                <h4>The Links Golf And Racquet Clubh</h4>
+
+                <p style=" font-size:16px">Manufacturer: Aeropostale </p>
+                <p style=" font-size:16px">Store: Priceline.com</p>
+                <p style=" font-size:16px">Description: 917 THOMAS AVENUE,NORTH MYRTLE BEACH,SC,29582</p>
+
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="price">$80</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <button class="btn btn-success right"> BUY ITEM</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 col-sm-12">
+            <div class="thumbnail">
+                <img src="http://images10.newegg.com/ProductImageCompressAll200/A0B0_1_20160401660444564.jpg" alt="Cinque Terre" width="304" height="236" itemprop="image">
+
+                <h4>Charles David Rebellion Women US 8.5 Black Bootie</h4>
+
+                <p style=" font-size:16px">Manufacturer: Charles David </p>
+                <p style=" font-size:16px">Store: Ashford</p>
+                <p style=" font-size:16px">Charles David Rebellion Women US 8.5 Black Bootie Brand: Charles David Type: Boots Color: Black Occasion: Everyday Material: Leather Age Group: Adult Gender: Female Condition: New</p>
+
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="price">$8.5</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <button class="btn btn-success right"> BUY ITEM</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--end products-->
+
+<section>
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <hr>
+        <h3 style="text-align:center">Top Offers</h3>
+
+
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Testclear.com Special offer</div>
+            <div class="panel-body" style="text-align:center">
+
+
+
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold">Description:</td>
+                            <td style="text-align:left">Proven Drug Testing Solutions</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Category:</td>
+                            <td style="text-align:left">Health and Wellness</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Promotion Type:</td>
+                            <td style="text-align:left">Free Shipping</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td style="font-weight:bold">Start Date:</td>
+                            <td style="text-align:left">2016-07-28</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">End Date:</td>
+                            <td style="text-align:left">2016-08-31</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <b style="text-align:center">Visit site</b>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Ashford Special offer</div>
+            <div class="panel-body" style="text-align:center">
+
+
+
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold">Description:</td>
+                            <td style="text-align:left">Ashford.com has been selling high quality watches for more than 10 years. We provide a 30 day 100% money back guarantee.Ashford.com has been selling high quality watches for more than 10 years. We provide a 30 day 100% money back guarantee</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Category:</td>
+                            <td style="text-align:left">Jewelry</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Promotion Type:</td>
+                            <td style="text-align:left">Free Shipping</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td style="font-weight:bold">Start Date:</td>
+                            <td style="text-align:left">2016-06-18</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">End Date:</td>
+                            <td style="text-align:left">2016-09-30</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <b style="text-align:center">Visit site</b>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Seagate Expansion Desktop STEB3000100 - Hard drive - 3 TB </div>
+            <div class="panel-body" style="text-align:center">
+
+
+
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold">Description:</td>
+                            <td style="text-align:left">Seagate Expansion Desktop STEB3000100 - Hard drive - 3 TB - external ( desktop ) - USB 3.0 STEB3000100 13430073</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Category:</td>
+                            <td style="text-align:left">Electronics</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">Promotion Type:</td>
+                            <td style="text-align:left">Free Shipping</td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td style="font-weight:bold">Start Date:</td>
+                            <td style="text-align:left">2016-06-28</td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">End Date:</td>
+                            <td style="text-align:left">2016-09-31</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <b style="text-align:center">Visit site</b>
+
+            </div>
+        </div>
+    </div>
+</section>

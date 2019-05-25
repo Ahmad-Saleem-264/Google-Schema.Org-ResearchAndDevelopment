@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "sort";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Sort View</h2>
+<form action="@Url.Action("Search","Search")" method="post" class="navbar-form myform" role="search">
+    <select class="form-control" id="selected1" name="Selectedname">
+        <option>Product</option>
+        <option>Offer</option>
+        <option>Advertiser</option>
+
+    </select>
+    <br />
+    <br />
+    <select class="form-control" id="selected2" name="Selectedsort">
+        <option>Created Date</option>
+        <option></option>
+        <option>Advertiser</option>
+
+    </select>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-default">Search</button>
+
+
+</form>

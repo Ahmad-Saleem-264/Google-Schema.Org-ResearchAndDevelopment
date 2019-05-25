@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FinalYearProject.Models.Commission>
+
+@{
+    ViewBag.Title = "viewCommission";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>View Commission</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemListID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemListName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PricePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemListAutoKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemListID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemListName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PricePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemListAutoKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifyDate)
+        </td>
+      
+    </tr>
+}
+
+</table>

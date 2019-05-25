@@ -1,0 +1,139 @@
+﻿@model FinalYearProject.Models.Advertiser
+
+@{
+    ViewBag.Title = "advertiserDetails";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>advertiserDetails</h2>
+
+<div>
+    <h4>Advertiser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           View
+        </dt>
+
+        <dd>
+            @Html.ActionLink("View Products", "productSearchNametoID", "Admin", new { keyValue = Model.Name.ToString().TrimEnd() }, null) | @Html.ActionLink("View Offers", "offerSearchNametoID", "Admin", new { keyValue = Model.Name.ToString().TrimEnd() }, null)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SevenDayEpc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SevenDayEpc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThreeMonthEpc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThreeMonthEpc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelationshipStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelationshipStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileTracking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileTracking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentCategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentCategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildCategoryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildCategoryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerformanceIncentive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceIncentive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifyDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Actions Of Advertiser", "viewActions", new { id = Model.AdvertiserID }) |
+    @Html.ActionLink("Edit", "advertiserEdit", new { id = Model.AdvertiserID }) |
+    @Html.ActionLink("Back to List", "viewAdvertisers")
+</p>

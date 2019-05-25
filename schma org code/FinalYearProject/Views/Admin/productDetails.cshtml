@@ -1,0 +1,187 @@
+﻿@model FinalYearProject.Models.Product
+
+@{
+    ViewBag.Title = "productDetails";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>productDetails</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertiser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advertiser.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvertisorCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvertisorCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatalogID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatalogID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InStock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturerSKU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturerSKU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RetailPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RetailPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SKU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SKU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UPC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UPC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductAutoKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductAutoKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufactureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufactureName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "productEdit", new {id=Model.ProductAutoKey }) |
+    @Html.ActionLink("Back to List", "viewProducts")
+</p>

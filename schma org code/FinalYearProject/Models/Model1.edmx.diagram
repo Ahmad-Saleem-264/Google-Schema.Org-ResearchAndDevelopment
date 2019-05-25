@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a0140184b2254df8bbba8d21839cf107" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="ServicesDataModel.Action" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Adveriser_LinkType" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Advertiser" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Category" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Commission" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Language" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.LinkSize" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.LinkType" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Offer" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.OfferApproved" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.OfferDetail" Width="1.5" PointX="10.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Product" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.Promotion" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesDataModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ServicesDataModel.FK_Action_Advertiser" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Commission_Action1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Adveriser_LinkType_Adveriser_LinkType" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Adveriser_LinkType_Advertiser" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Advertiser_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Advertiser_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Advertiser_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Offer_Advertiser" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Product_Advertiser" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Offer_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Offer_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Offer_LinkType" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_Offer_Promotion" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_OfferApproved_Offer" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesDataModel.FK_OfferDetail_Offer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

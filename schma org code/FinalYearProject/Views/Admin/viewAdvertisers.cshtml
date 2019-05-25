@@ -1,0 +1,188 @@
+﻿@model IEnumerable<FinalYearProject.Models.Advertiser>
+
+@{
+    ViewBag.Title = "AdvertiserDetail";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Advertiser Detail</h2>
+
+<table class="table">
+    <tr>
+        <th>
+                 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SevenDayEpc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThreeMonthEpc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </th>       
+       
+        <th>
+            @Html.DisplayNameFor(model => model.RelationshipStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileTracking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetworkRank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceIncentive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="text-center">
+            @Html.ActionLink("Edit", "advertiserEdit", new { id = item.AdvertiserID })
+            @Html.ActionLink("Details", "advertiserDetails", new { id = item.AdvertiserID })       
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SevenDayEpc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThreeMonthEpc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language.Languages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountStatus)
+        </td>
+            
+        <td>
+            @Html.DisplayFor(modelItem => item.RelationshipStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileTracking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetworkRank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Category1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category1.Category1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PerformanceIncentive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+    </tr>
+}
+
+</table>
+@{
+    int page_num = ViewBag.id;
+    int total_page = ViewBag.totalpage;
+}
+
+@if (page_num < 3)
+{
+    <div style="text-align:center">
+        <ul class="pagination">
+            @if(page_num==1)
+            {
+            <li class="active"><a href="/Admin/ViewAdvertisers/1">1</a></li>
+            <li><a href="/Admin/ViewAdvertisers/2">2</a></li>
+            <li><a href="/Admin/ViewAdvertisers/3">3</a></li>
+            <li><a href="/Admin/ViewAdvertisers/4">4</a></li>
+            <li><a href="/Admin/ViewAdvertisers/5">5</a></li>
+            }
+            @if(page_num==2)
+            {
+            <li><a href="/Admin/ViewAdvertisers/1">1</a></li>
+            <li class="active"><a href="/Admin/ViewAdvertisers/2">2</a></li>
+            <li><a href="/Admin/ViewAdvertisers/3">3</a></li>
+            <li><a href="/Admin/ViewAdvertisers/4">4</a></li>
+            <li><a href="/Admin/ViewAdvertisers/5">5</a></li>
+            }
+            
+            
+            
+        </ul>
+    </div>
+}
+else if (page_num > ((total_page) - 2))
+{
+
+    <div style="text-align:center">
+        <ul class="pagination">
+           
+            @if (page_num==(total_page - 1))
+            {
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li class="active"><a href="/Admin/ViewAdvertisers/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li><a href="/Admin/ViewAdvertisers/@(total_page)">@(total_page)</a></li>
+            }
+            @if (page_num == total_page)
+            {
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Admin/ViewAdvertisers/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li ><a href="/Admin/ViewAdvertisers/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li class="active"><a href="/Admin/ViewAdvertisers/@(total_page)">@(total_page)</a></li>
+            }
+
+
+        </ul>
+    </div>
+
+}
+
+
+else {
+
+
+    <div style="text-align:center">
+        <ul class="pagination">
+            <li><a href="/Admin/ViewAdvertisers/@(page_num-2)">@(page_num - 2)</a></li>
+            <li><a href="/Admin/ViewAdvertisers/@(page_num-1)">@(page_num - 1)</a></li>
+            <li class="active"><a href="/Admin/ViewAdvertisers/@(page_num)">@(page_num)</a></li>
+            <li><a href="/Admin/ViewAdvertisers/@(page_num+1)">@(page_num + 1)</a></li>
+            <li><a href="/Admin/ViewAdvertisers/@(page_num+2)">@(page_num + 2)</a></li>
+        </ul>
+    </div>
+
+}

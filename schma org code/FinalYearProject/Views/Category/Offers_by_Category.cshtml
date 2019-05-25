@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FinalYearProject.Models.Offer>
+@{
+    ViewBag.Title = "Offers by categories";
+}
+
+<h2 style="text-align:center">Offers on @ViewBag.category_name </h2>
+<hr />
+@foreach (var item in Model)
+{
+    <div class="panel panel-primary" itemscope itemtype="http://schema.org/Offer">
+        <div class="panel-heading" itemprop="seller">@item.Advertiser.Name Special offer</div>
+
+        <div class="panel-body" style="text-align:center">
+
+
+
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold">Description:</td>
+                        <td style="text-align:left" itemprop="description">@item.Description</td>
+
+                    </tr>
+
+                    
+
+                    <tr>
+                        <td style="font-weight:bold">Category:</td>
+                        <td style="text-align:left" itemprop="category">@item.Category.Category1</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Coupon Code:</td>
+                        <td style="text-align:left">@item.CouponCode</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">Promotion Type:</td>
+                        <td style="text-align:left">@item.Promotion.PromotionType </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td style="font-weight:bold">Start Date:</td>
+
+                        <td style="text-align:left" itemprop="validFrom">@item.PromotionStartDate</td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold">End Date:</td>
+                        <td style="text-align:left" itemprop="validThrough">@item.PromotionEndDate</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <b style="text-align:center">Visit site</b>
+
+        </div>
+    </div>
+
+
+}
+
+
+

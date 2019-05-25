@@ -1,0 +1,127 @@
+﻿@model IEnumerable<FinalYearProject.Models.Product>
+@{
+    ViewBag.Title = "Products By Name";
+}
+
+<h3 style="text-align:center; padding-bottom:20px">Products by name</h3>
+@{ int i = 0;
+    string a = "<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">";
+    string b = "</div>";
+    string c = "<hr>";
+}
+
+
+@foreach (var item in Model)
+{
+
+
+    if (i == 0)
+    {
+        @Html.Raw(a);
+        @Html.Raw(c);
+
+    }
+    i++;
+
+    <div class="col-md-4 col-sm-12" itemscope itemtype="http://schema.org/Product">
+        @*<div class="thumbnail">*@
+        <img src="@item.ImageUrl" alt="Cinque Terre" width="304" height="236" itemprop="image">
+
+        <h4 itemprop="name">@item.Name</h4>
+
+        <p style="font-size:16px" itemprop="manufacturer">Manufacturer: @item.ManufactureName </p>
+        <p style="font-size:16px"  itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <span itemprop="seller">
+                Store: @item.Advertiser.Name
+            </span>
+        </p>
+        @Html.ActionLink("Details", "Details", new { id =item.ProductAutoKey })
+        <hr class="line">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <p class="price" itemprop="price">$@item.Price</p>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <button class="btn btn-success right"> BUY ITEM</button>
+            </div>
+
+        </div>
+        @*</div>*@
+    </div>
+
+    if (i == 3)
+    {
+        @Html.Raw(b);
+                    i = 0;
+                }
+
+            }
+
+
+@{
+    int page_num = ViewBag.id;
+    int total_page = ViewBag.totalpage;
+}
+@if (page_num < 3)
+{
+    <div style="text-align:center">
+        <ul class="pagination">
+            @if (page_num == 1)
+            {
+                <li class="active"><a href="/Products/products_by_name/1">1</a></li>
+                <li><a href="/Products/products_by_name/2">2</a></li>
+                <li><a href="/Products/products_by_name/3">3</a></li>
+                <li><a href="/Products/products_by_name/4">4</a></li>
+                <li><a href="/Products/products_by_name/5">5</a></li>
+            }
+            @if (page_num == 2)
+            {
+                <li><a href="/Products/products_by_name/1">1</a></li>
+                <li class="active"><a href="/Products/products_by_name/2">2</a></li>
+                <li><a href="/Products/products_by_name/3">3</a></li>
+                <li><a href="/Products/products_by_name/4">4</a></li>
+                <li><a href="/Products/products_by_name/5">5</a></li>
+            }
+        </ul>
+    </div>
+}
+
+else if (page_num > ((total_page) - 2))
+{
+
+    <div style="text-align:center">
+        <ul class="pagination">
+            @if (page_num == total_page - 1)
+            {
+                <li><a href="/Products/products_by_name/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Products/products_by_name/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Products/products_by_name/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li class="active"><a href="/Products/products_by_name/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li><a href="/Products/products_by_name/@(total_page)">@(total_page)</a></li>
+            }
+            @if (page_num == total_page)
+            {
+                <li><a href="/Products/products_by_name/@(total_page - 4)"> @(total_page - 4) </a></li>
+                <li><a href="/Products/products_by_name/@(total_page - 3)">@(total_page - 3)</a></li>
+                <li><a href="/Products/products_by_name/@(total_page - 2)">@(total_page - 2)</a></li>
+                <li><a href="/Products/products_by_name/@(total_page - 1)">@(total_page - 1)</a></li>
+                <li class="active"><a href="/Products/products_by_name/@(total_page)">@(total_page)</a></li>
+            }
+        </ul>
+    </div>
+
+}
+
+
+else {
+    <div style="text-align:center">
+        <ul class="pagination">
+            <li><a href="/Products/products_by_name/@(page_num-2)">@(page_num - 2)</a></li>
+            <li><a href="/Products/products_by_name/@(page_num-1)">@(page_num - 1)</a></li>
+            <li class="active"><a href="/Products/products_by_name/@(page_num)">@(page_num)</a></li>
+            <li><a href="/Products/products_by_name/@(page_num+1)">@(page_num + 1)</a></li>
+            <li><a href="/Products/products_by_name/@(page_num+2)">@(page_num + 2)</a></li>
+        </ul>
+    </div>
+
+}

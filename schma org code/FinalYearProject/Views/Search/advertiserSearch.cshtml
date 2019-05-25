@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FinalYearProject.Models.Advertiser>
+@{
+    ViewBag.Title = "Advertiser Search";
+
+
+
+
+}
+
+
+
+<h3 style="text-align:center; padding-bottom:20px">Advertisers Search Against @ViewBag.key</h3>
+@{ int i = 0;
+    string a = "<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">";
+    string b = "</div>";
+    string c = "<hr>";
+}
+
+
+
+
+
+
+@foreach (var item in Model)
+            {
+
+
+                if (i == 0)
+                {
+        @Html.Raw(a);
+        @Html.Raw(c);
+
+                }
+                i++;
+
+    <div class="col-md-3 col-sm-8 col-xs-10" itemscope itemtype="http://schema.org/Store">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 itemprop="name">@item.Name.ToString()</h4>
+                <h5><b>Category:</b>
+
+                    <span itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer">
+                        <span itemprop="category">
+                            @item.Category1.Category1
+                        </span>
+                    </span>
+                
+                </h5>
+                <a href="#"><h5> View Products  </h5></a>
+                <a href="#"><h5> View Offers  </h5></a>
+            </div>
+            <div class="panel-footer" itemprop="url">Visit Site</div>
+        </div>
+    </div>
+
+    if (i == 4)
+    {
+        @Html.Raw(b);
+                    i = 0;
+                }
+
+            }
+
+

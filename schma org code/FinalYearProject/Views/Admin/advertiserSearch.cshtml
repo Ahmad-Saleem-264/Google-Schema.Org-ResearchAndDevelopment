@@ -1,0 +1,115 @@
+﻿@model IEnumerable<FinalYearProject.Models.Advertiser>
+
+@{
+    ViewBag.Title = "advertiserSearch";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>advertiserSearch</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SevenDayEpc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThreeMonthEpc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RelationshipStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileTracking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetworkRank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildCategoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceIncentive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">
+                @Html.ActionLink("Edit", "advertiserEdit", new { id = item.AdvertiserID })
+                @Html.ActionLink("Details", "advertiserDetails", new { id = item.AdvertiserID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SevenDayEpc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThreeMonthEpc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language.Languages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountStatus)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RelationshipStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileTracking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetworkRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Category1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category1.Category1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceIncentive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+        </tr>
+    }
+
+</table>

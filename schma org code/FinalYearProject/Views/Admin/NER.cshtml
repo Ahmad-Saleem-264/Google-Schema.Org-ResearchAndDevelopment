@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "NER";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>NER</h2>
+
+<p>@ViewBag.NERList</p>
+
+<input type="text" class="form-control" value="@(ViewBag.NERList ?? String.Empty)">
